@@ -1,0 +1,87 @@
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 50px;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    margin-right: 40px;
+}
+
+.nav-con {
+    border-bottom: medium;
+    box-shadow: 5px 5px 5px grey;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+
+.profil-section{
+    display: flex;
+    align-items: center;
+    gap: 200px;
+    justify-content: center;
+}
+
+#profile-card{
+    margin-top: 100px;
+}
+
+.profil-info{
+    display: flex;
+    align-items: center;
+}
+
+.detail{
+    padding-left: 40px;
+    border-left: solid;
+    border-left-color: grey;
+    border-left-width: 1px;
+}
+
+input{
+    margin-bottom: 15px;
+}
+
+.label{
+    font-weight: bold;
+}
+
+#forms-container{
+    display: none;
+    margin-top: 30px;
+}
+
+#profile-experience{
+    margin-left: 50px;
+}
+
+#profile-availibility{
+    margin-left: 60px;
+}
+
+#profile-age {
+    margin-left: 110px;
+}
+
+#profile-location{
+    margin-left: 95px;
+}
+
+#profile-email {
+    margin-left: 100px;
+}
+
+#btn-submit{
+    margin-bottom: 15px;
+}
+
+#btn-back{
+    width: 100px;
+    align-self: flex-end;
+}
+
+
+
+
