@@ -47,14 +47,27 @@ inputs.forEach(input => {
 btnSubmit.addEventListener('click', (dataInput) => {
     dataInput.preventDefault(); //mencegah auto submit
 
-    var name = document.querySelector('#name').value;
-    var role = document.querySelector('#role').value;
-    var availibility = document.querySelector('#availibility').value;
-    var age = document.querySelector('#age').value;
-    var location = document.querySelector('#location').value;
-    var experience = document.querySelector('#experience').value;
-    var email = document.querySelector('#email').value;
+    const name = document.querySelector('#name').value;
+    const role = document.querySelector('#role').value;
+    const availibility = document.querySelector('#availibility').value;
+    const age = document.querySelector('#age').value;
+    const location = document.querySelector('#location').value;
+    const experience = document.querySelector('#experience').value;
+    const email = document.querySelector('#email').value;
 
+    const data = {
+        name : name,
+        role : role,
+        availibility : availibility,
+        age : age,
+        location : location,
+        experience : experience,
+        email : email
+    }
+
+    localStorage.setItem('profile', JSON.stringify(data));//stringify membuat data dari object menjadi string
+
+    //update profile card
     document.querySelector('#profile-name').textContent = name;
     document.querySelector('#profile-role').textContent = role;
     document.querySelector('#profile-availibility').textContent = availibility;
@@ -67,3 +80,33 @@ btnSubmit.addEventListener('click', (dataInput) => {
     profile.style.display = 'block';
 
 });
+
+
+//untuk ketika refresh valuenya ambil dari local storage
+function render() {
+    const datas = localStorage.getItem('profile');
+    if (datas) {
+        const parseData = JSON.parse(datas); // Ubah string menjadi object
+
+        // Isi ulang input field
+        document.querySelector('#name').value = parseData.name || 'Nama Anda';
+        document.querySelector('#role').value = parseData.role || 'Role Anda';
+        document.querySelector('#availibility').value = parseData.availibility || '';
+        document.querySelector('#age').value = parseData.age || '';
+        document.querySelector('#location').value = parseData.location || '';
+        document.querySelector('#experience').value = parseData.experience || '';
+        document.querySelector('#email').value = parseData.email || '';
+
+        // Update profile card
+        document.querySelector('#profile-name').textContent = parseData.name || 'Nama Anda';
+        document.querySelector('#profile-role').textContent = parseData.role || 'Role Anda';
+        document.querySelector('#profile-availibility').textContent = parseData.availibility || '';
+        document.querySelector('#profile-age').textContent = parseData.age || '';
+        document.querySelector('#profile-location').textContent = parseData.location || '';
+        document.querySelector('#profile-experience').textContent = parseData.experience || '';
+        document.querySelector('#profile-email').textContent = parseData.email || '';
+    }
+}
+
+// Panggil fungsi render saat halaman direload
+document.addEventListener('DOMContentLoaded', render);
